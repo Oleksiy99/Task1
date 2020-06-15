@@ -15,5 +15,6 @@ public class Program {
         m.add(f2);
         m.add(f3);
         m.show();
+        // i print a text)
     }
 }
