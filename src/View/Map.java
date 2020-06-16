@@ -8,6 +8,11 @@ public class Map {
        map=new char[6][6];
         mapDefault();
     }
+
+    public char[][] getMap() {
+        return map;
+    }
+
     public void mapDefault()
     {
         for(int i=0;i<map.length;i++)

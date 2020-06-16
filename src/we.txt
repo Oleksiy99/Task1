@@ -1,1 +1,42 @@
-Hello my friend)
+		Fish Game
+ 1. Клас Fish (
+		bool isFull
+		int size
+		int x
+		int y
+	)
+ 2. Клас Map (
+		int[][] map
+		show() (with colors)
+		Add(int x, int y, int size)
+	)
+ 3. Клас Controller (
+		int position
+		Риба fish
+		
+		getFish() (take a fish)
+		outFish()
+		work()
+		show()
+	)
+ 4. Program (
+		newLevel()
+		main(
+			while(true) { while(true) { } }
+		)
+	)
+
+    TODO
+    1. Level generation
+    2. Generation fish
+    3. Play game....
+    4. End
+
+    Сьогодні (написав Матвій)
+    1. Написав контроллер, але ще треба крту допимати і тоді я ще контроллер допишу
+    2. Вже є генерація рівнів, їх всього 5
+
+    Правкі (написав Матвій)
+    1. Зараз в карті не риби а символи, було б добре зробити масив символів і масив риб
+    2. Я вже не памятаю для чого нам work() і show()
+    3.
