@@ -23,4 +23,12 @@ public class Fish {
     {
         return coordY;
     }
+
+    public void setCoordX(int coordX) {
+        this.coordX = coordX;
+    }
+
+    public void setCoordY(int coordY) {
+        this.coordY = coordY;
+    }
 }

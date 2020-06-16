@@ -1,11 +1,16 @@
 package View;
 import Models.Fish;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Map {
     private char[][] map;
+    List<Fish> fishList;
     public Map()
     {
        map=new char[6][6];
+       fishList = new ArrayList<Fish>();
         mapDefault();
     }
 
@@ -23,13 +28,11 @@ public class Map {
     {
         for(int i=0;i<map.length;i++) {
             for (int j = 0; j < map[i].length; j++)
-            {
                 showSymbol(map[i][j]);
-            }
             System.out.println();
         }
     }
-    private void showSymbol(char symbol)
+    public static void showSymbol(char symbol)
     {
         switch (symbol)
         {
@@ -45,12 +48,20 @@ public class Map {
             case 'B':
                 System.out.print("\u001B[34;1m"+symbol+" ");
                 break;
-            default:  System.out.print("\u001B[94;1m"+symbol+" ");
+            default:  System.out.print("\u001B[96;1m"+symbol+" ");
         }
     }
-    public void add(Fish f)
+    public void addFish(Fish f)
     {
+        fishList.add(f);
         map[f.getCoordX()][f.getCoordY()]=f.getSymbol();
+    }
+    public Fish removeFish(int coordX,int coordY)
+    {
+        Fish temp=fishList.stream().filter(f->f.getCoordY()==coordY&&f.getCoordX()==coordX).findFirst().get();
+        fishList.remove(temp);
+        map[coordX][coordY]='\u0489';
+        return temp;
     }
 }
 

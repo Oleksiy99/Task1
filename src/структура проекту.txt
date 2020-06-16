@@ -1,0 +1,57 @@
+﻿		Fish Game
+ 1. Class Fish (
+		bool isFull
+		char symbol
+		int coordX
+		int coordY
+		Fish()//create fish
+		getSymbol()   \
+		getCoordX()    | get variables
+		getCoordY()   /
+		setCoordX()   \set coords
+		setCoordY()   /	
+	)
+ 2. Class Map (
+		char[][] map
+		Map() //Create clear map
+		getMap()
+		mapDefault() //Set clear map
+		showSymbol() //show symbol
+		show() //show map
+		addFish(Fish f)//add fish in world
+		removeFish(coordX,coordY)//remove fish
+	)
+ 3. Class Controller (
+		int gunPosition //position gun
+		Fish fish // fish inside gun
+		Controller() //create position default
+		setGunPosition() //set position gun
+		getFish()
+		outFish() take away fish from gun
+		work()
+		show()//show position controller and what his next actions
+	)
+ 4. Program (
+		newLevel()//generate fish in map
+		main(
+			while(true) { while(true) { } }
+		)
+	)
+
+Todo:
+1)Create generation level(set random fishes in map world)
+2)Show map
+3)Show controller
+4)Check command player in controler
+5.1)If player kill all fish: replace map(random level)
+5.2)If player not kill all fish: reload position player
+6)This game continue in always
+
+    Сьогодні (написав Матвій)
+    1. Написав контроллер, але ще треба крту допимати і тоді я ще контроллер допишу
+    2. Вже є генерація рівнів, їх всього 5
+
+    Правкі (написав Матвій)
+    1. Зараз в карті не риби а символи, було б добре зробити масив символів і масив риб
+    2. Я вже не памятаю для чого нам work() і show()
+    3.
