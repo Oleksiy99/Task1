@@ -1,42 +1,51 @@
 ﻿		Fish Game
- 1. Class Fish (
-		bool isFull
-		char symbol
-		int coordX
-		int coordY
-		Fish()//create fish
-		getSymbol()   \
-		getCoordX()    | get variables
-		getCoordY()   /
-		setCoordX()   \set coords
-		setCoordY()   /	
-	)
- 2. Class Map (
-		char[][] map
-		Map() //Create clear map
-		getMap()
-		mapDefault() //Set clear map
-		showSymbol() //show symbol
-		show() //show map
-		addFish(Fish f)//add fish in world
-		removeFish(coordX,coordY)//remove fish
-	)
- 3. Class Controller (
-		int gunPosition //position gun
-		Fish fish // fish inside gun
-		Controller() //create position default
-		setGunPosition() //set position gun
-		getFish()
-		outFish() take away fish from gun
-		work()
-		show()//show position controller and what his next actions
-	)
- 4. Program (
-		newLevel()//generate fish in map
-		main(
-			while(true) { while(true) { } }
-		)
-	)
+ 1. Class Fish {
+		private boolean isFull
+        private char symbol
+        private int coordX
+        private int coordY
+
+		Fish()                      // create fish
+		getSymbol()                 // get fish character
+		getCoordX()                 // get x fish
+		getCoordY()                 // get y fish
+		setCoordX()                 // set x fish
+		setCoordY()                 // set y fish
+	}
+ 2. Class Map {
+		private char[][] map
+        private List<Fish> fishList // fish list
+
+		Map()                       // create clear map
+		getMap()                    // return map
+		clear()                     // clear list of fish
+		mapDefault()                // set clear map
+		show()                      // show map
+		mapFishRefresh()            // refresh fish on map
+		showSymbol()                // show symbol
+		addFish(Fish f)             // add fish in world
+		getFish(coordX, coordY)     // get fish by coords
+		updateFish(coordX, coordY)  // set fish full by coords
+		removeFish(coordX,coordY)   // remove fish by coords
+	}
+ 3. Class Controller {
+		private int gunPosition;    // position gun
+        private Fish fish;          // fish inside gun
+        private int lvl;            // current lvl
+
+		Controller()                // initialize by default
+		setGunPosition()            // set position gun
+		getFish()                   // get fish by gun position
+		outFish()                   // take away fish from gun
+		fishWay(Map, int)           // fish update or remove
+		removeFishWay(Map, char)    // remove fish line
+		newLevel(Map, int)          // set fish position on new lvl
+		work()                      // controls with keyboard
+		show()                      //show position controller and what his next actions
+	}
+ 4. Program {
+		main()                      // run the game
+	}
 
 Todo:
 1)Create generation level(set random fishes in map world)

@@ -6,36 +6,49 @@ import java.util.List;
 
 public class Map {
     private char[][] map;
-    List<Fish> fishList;
+    private List<Fish> fishList;
+
     public Map()
     {
-       map=new char[6][6];
+       map = new char[6][6];
        fishList = new ArrayList<Fish>();
-        mapDefault();
+       mapDefault();
     }
 
     public char[][] getMap() {
         return map;
     }
 
-    public void mapDefault()
-    {
-        for(int i=0;i<map.length;i++)
-            for(int j=0;j<map[i].length;j++)
-                map[i][j]='\u0489';
+    public void clear() {
+        fishList.clear();
     }
-    public void show()
-    {
-        for(int i=0;i<map.length;i++) {
-            for (int j = 0; j < map[i].length; j++)
+
+    public void mapDefault() {
+        for(int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                map[i][j] = '\u0489';
+            }
+        }
+    }
+
+    public void show() {
+        for(int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
                 showSymbol(map[i][j]);
+            }
             System.out.println();
         }
     }
-    public static void showSymbol(char symbol)
+
+    public void mapFishRefresh()
     {
-        switch (symbol)
-        {
+        for(Fish fish : fishList) {
+            map[fish.getCoordX()][fish.getCoordY()] = fish.getSymbol();
+        }
+    }
+
+    public static void showSymbol(char symbol) {
+        switch (symbol) {
             case 's':
             case 'S':
                 System.out.print("\u001B[33;1m"+symbol+" ");
@@ -51,16 +64,39 @@ public class Map {
             default:  System.out.print("\u001B[96;1m"+symbol+" ");
         }
     }
-    public void addFish(Fish f)
-    {
+
+    public void addFish(Fish f) {
         fishList.add(f);
-        map[f.getCoordX()][f.getCoordY()]=f.getSymbol();
+        map[f.getCoordX()][f.getCoordY()] = f.getSymbol();
     }
-    public Fish removeFish(int coordX,int coordY)
-    {
-        Fish temp=fishList.stream().filter(f->f.getCoordY()==coordY&&f.getCoordX()==coordX).findFirst().get();
+
+    public Fish getFish(int coordX, int coordY) {
+        Fish temp = fishList
+                .stream()
+                .filter(f->f.getCoordY() == coordY && f.getCoordX() == coordX)
+                .findFirst()
+                .get();
+        return temp;
+    }
+
+    public void updateFish(int coordX, int coordY) {
+        Fish temp = fishList
+                .stream()
+                .filter(f->f.getCoordY() == coordY && f.getCoordX() == coordX)
+                .findFirst()
+                .get();
+        temp.setFull(true);
+    }
+
+    public Fish removeFish(int coordX, int coordY) {
+        Fish temp = fishList
+                .stream()
+                .filter(f->f.getCoordY() == coordY && f.getCoordX() == coordX)
+                .findFirst()
+                .get();
+
         fishList.remove(temp);
-        map[coordX][coordY]='\u0489';
+        map[coordX][coordY] = '\u0489';
         return temp;
     }
 }
