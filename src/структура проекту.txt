@@ -1,9 +1,9 @@
 ﻿		Fish Game
  1. Class Fish {
-		private boolean isFull
-        private char symbol
-        private int coordX
-        private int coordY
+		private boolean isFull      // is fish have food
+        private char symbol         // fish character
+        private int coordX          // x position
+        private int coordY          // y position
 
 		Fish()                      // create fish
 		getSymbol()                 // get fish character
@@ -13,7 +13,7 @@
 		setCoordY()                 // set y fish
 	}
  2. Class Map {
-		private char[][] map
+		private char[][] map        // map
         private List<Fish> fishList // fish list
 
 		Map()                       // create clear map
@@ -46,21 +46,3 @@
  4. Program {
 		main()                      // run the game
 	}
-
-Todo:
-1)Create generation level(set random fishes in map world)
-2)Show map
-3)Show controller
-4)Check command player in controler
-5.1)If player kill all fish: replace map(random level)
-5.2)If player not kill all fish: reload position player
-6)This game continue in always
-
-    Сьогодні (написав Матвій)
-    1. Написав контроллер, але ще треба крту допимати і тоді я ще контроллер допишу
-    2. Вже є генерація рівнів, їх всього 5
-
-    Правкі (написав Матвій)
-    1. Зараз в карті не риби а символи, було б добре зробити масив символів і масив риб
-    2. Я вже не памятаю для чого нам work() і show()
-    3.
